@@ -19,11 +19,12 @@ public class CustomerService {
     }
 
     protected Customer findCustomerById(String id){
-        return customerRepository.findById(id).orElseThrow(
-                () -> new CustomerNotFoundException("Customer not found by id: " + id));
+        return customerRepository.findById(id)
+                .orElseThrow(
+                    () -> new CustomerNotFoundException("Customer not found by id: " + id));
     }
 
     public CustomerDto getCustomerById(String customerId) {
-        return converter.convertToCustomerDto(findCustomerById(customerId));
+        return converter.convertToCustomerDto(findCustomerById(customerId) );
     }
 }
