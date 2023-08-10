@@ -1,7 +1,7 @@
 package com.folksdev.account.service;
 
 import com.folksdev.account.dto.AccountDto;
-import com.folksdev.account.dto.AccountDtoConverter;
+import com.folksdev.account.dto.converter.AccountDtoConverter;
 import com.folksdev.account.dto.CreateAccountRequest;
 import com.folksdev.account.model.Account;
 import com.folksdev.account.model.Customer;
@@ -19,12 +19,14 @@ public class AccountService {
     private final CustomerService customerService;
 
     private final AccountDtoConverter converter;
+
     public AccountService(AccountRepository accountRepository,
                           CustomerService customerService,
                           AccountDtoConverter converter) {
         this.accountRepository = accountRepository;
         this.customerService = customerService;
         this.converter = converter;
+
     }
 
     public AccountDto createAccount(CreateAccountRequest createAccountRequest) {
@@ -39,5 +41,6 @@ public class AccountService {
 
         return converter.convert(accountRepository.save(account));
     }
+
 
 }

@@ -1,9 +1,10 @@
-package com.folksdev.account.dto;
+package com.folksdev.account.dto.converter;
 
+import com.folksdev.account.dto.CustomerAccountDto;
+import com.folksdev.account.dto.converter.TransactionDtoConverter;
 import com.folksdev.account.model.Account;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
